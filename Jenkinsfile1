@@ -62,12 +62,12 @@ stage("Docker Build & Push"){
         }
         stage("TRIVY"){
             steps{
-                sh "trivy image praveensingam1994/devsecops_ad:latest > trivy.txt" 
+                sh "trivy image kakkashi/devsecops_ad:latest > trivy.txt" 
             }
         }
 stage('Deploy to container'){
             steps{
-                sh 'docker run -d --name 2048 -p 3000:3000 praveensingam1994/devsecops_ad:latest'
+                sh 'docker run -d --name 2048 -p 3000:3000 kakkashi/devsecops_ad:latest'
             }
         }
 stage('Deploy to kubernets'){
